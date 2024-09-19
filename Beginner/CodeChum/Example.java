@@ -5,7 +5,7 @@ public class Example {
         String name = "I am learning using git :> and learning programming ";
         int num = 1;
 
-        for (num = 1; num<=5; num++){
+        for (num = 1; num<=10; num++){
             System.out.print(name);
         }
     }
