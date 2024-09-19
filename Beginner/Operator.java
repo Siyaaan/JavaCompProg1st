@@ -9,6 +9,8 @@ public class Operator {
             int num1 = input.nextInt();
             int num2 = input.nextInt();
 
+
+            //Switching the num1 to num 2
             input.nextLine();
             System.out.println("Enter a string: ");
             String num3 = input.nextLine();
