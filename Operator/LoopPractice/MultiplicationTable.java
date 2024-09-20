@@ -6,7 +6,7 @@ public class MultiplicationTable {
         Scanner get = new Scanner(System.in);
         int num = get.nextInt();
 
-        for (int i=1; i<=10; i++){
+        for (int i=10; i>=1; i--){
             int product = i * num;
 
             System.out.println(num + " x " + i + " = " + product);
