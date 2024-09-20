@@ -1,5 +1,6 @@
 package Operator.LoopPractice;
 
+
 public class PrintNumbers {
 
     public static void main(String[] args) {
