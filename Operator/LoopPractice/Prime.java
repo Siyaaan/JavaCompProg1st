@@ -1,21 +1,24 @@
 package Operator.LoopPractice;
 
+import java.util.Scanner;
+
 public class Prime {
     public static void main(String[] args) {
-        int start = 10;
-        int end = 30;
-        int prime = 0;
-
-        for (int i = start; i <= end; i++){
-
-                for (int a = 1; a <= i; a++){
-
-                    double root = Math.sqrt(i);
-
-                    prime = (int) root % a;
-                        
-                }      
-        }
-        System.out.println(prime);
+        Scanner input = new Scanner(System.in);        
+		System.out.print("Enter the Number :");
+		int num = input.nextInt(); 
+		int count = 0;
+		for(int i=2; i<num; i++)
+		{
+			if(num%i == 0)
+			{
+				count++;
+				break;
+			}
+		}
+		if(count==0)
+			System.out.println("This is a Prime Number.");
+		else
+			System.out.println("This is not a Prime Number.");
     }
 }
