@@ -18,17 +18,19 @@ public class CalC {
         Scanner inputDecimal = new Scanner(System.in);
 
         System.out.println("Enter a Decimal Value: ");
-        int decimal = inputDecimal.nextInt();
+        int decimal = 100;//inputDecimal.nextInt();
+        String binary = "";
 
         //Decimal to binary
-        for (int i = 1; i <= decimal; i ++){
+        while (decimal > 0){
             int remainder = decimal % 2;
-
-            System.out.println(remainder);
+            binary = binary + remainder;
+            
 
             decimal = decimal / 2;
             
         }
+        inputDecimal.close();
     }
     public static void main (String [] args){ 
         Scanner get = new Scanner(System.in);
@@ -54,5 +56,6 @@ public class CalC {
                 break;
 
         }
+        get.close();
     }
 }
