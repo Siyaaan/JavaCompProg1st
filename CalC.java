@@ -13,25 +13,106 @@ public class CalC {
 
         inputAdd.close();
     }
-
+//DECIMAL PLACES CONVERSION -------------------------------------------------------
     static void decimal (){
-        Scanner inputDecimal = new Scanner(System.in);
+        Scanner inputDecimalConversion = new Scanner(System.in);
 
         System.out.println("Enter a Decimal Value: ");
-        int decimal = 100;//inputDecimal.nextInt();
+        int decimalNum = inputDecimalConversion.nextInt();
+        
+        //DECIMAL -----> BINARY
+        int decimalBinary = decimalNum;
         String binary = "";
 
-        //Decimal to binary
-        while (decimal > 0){
-            int remainder = decimal % 2;
-            binary = binary + remainder;
+        //EQUATION
+        while (decimalBinary > 0){
+            int remainderBinary = decimalBinary % 2;
+            binary = remainderBinary + binary;
             
-
-            decimal = decimal / 2;
-            
+            decimalBinary = decimalBinary / 2;
         }
-        inputDecimal.close();
+        System.out.println("Binary is: " + binary);
+        inputDecimalConversion.close();
+
+
+
+        //DECIMAL -----> OCTADECIMAL
+        int decimalOcta = decimalNum;
+        String Octadecimal = "";
+
+        //Equation
+        while (decimalOcta > 0){
+            int remainderHexa = decimalOcta % 8;
+            Octadecimal =   remainderHexa + Octadecimal;
+            
+            decimalOcta = decimalOcta / 8;
+        }
+        System.out.println("OctaDecimal is: " + Octadecimal);
+
+        
+
+        //DECIMAL -----> HexaDecimal
+        int decimalHexa = decimalNum;
+        String HexaDecimal = "";
+
+        //Equation
+        while (decimalHexa > 0){
+            int remainderHexa = decimalHexa % 16;
+
+            switch (remainderHexa) {
+                case 10:
+                    HexaDecimal = 'A' + HexaDecimal;
+                    break;
+                case 11:
+                    HexaDecimal = 'B' + HexaDecimal;
+                    break;
+                case 12:
+                    HexaDecimal = 'C' + HexaDecimal;
+                    break;
+                case 13:
+                    HexaDecimal = 'D' + HexaDecimal;
+                    break;
+                case 14:
+                    HexaDecimal = 'E' + HexaDecimal;
+                    break;
+                case 15:
+                    HexaDecimal = 'F' + HexaDecimal;
+                    break;
+
+                default:
+                    HexaDecimal = remainderHexa + HexaDecimal;
+                    break;
+            }
+            
+            decimalHexa = decimalHexa / 16;
+        }
+        System.out.println("HexaDecimal is: " + HexaDecimal);
+        inputDecimalConversion.close();
     }
+
+//BINARY DIGIT CONVERSION to DECIMAL -------------------------------------------------------
+    static void binary (){
+        Scanner inputBinaryConverstion = new Scanner(System.in);
+
+        int binary = 1011011;//inputBinaryConverstion.nextInt();
+        int result = 0;
+        int exponent = 0;
+
+
+        while (binary > 0){
+            int hold = binary % 10;
+            int current = (int) Math.pow(hold, exponent);
+            result = current + result;
+
+            exponent++;
+        }
+    }
+
+
+
+        
+    //-------------------------> MAIN
+    
     public static void main (String [] args){ 
         Scanner get = new Scanner(System.in);
 
@@ -44,11 +125,11 @@ public class CalC {
                 break;
 
             case 2:
-                decimal();
+                decimal ();
                 break;
 
             case 3:
-                System.out.println("third");
+                binary();
                 break;
 
             case 4:
