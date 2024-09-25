@@ -101,9 +101,12 @@ public class CalC {
 
         while (binary > 0){
             int hold = binary % 10;
-            int current = (int) Math.pow(hold, exponent);
-            result = current + result;
-            binary = binary / 2;
+            int current = (int) Math.pow(2, exponent);
+            
+            int currentMultiplier = current * hold;
+            result = currentMultiplier + result;
+
+            binary = binary / 10;
             exponent++;
         }
     }
