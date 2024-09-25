@@ -103,7 +103,7 @@ public class CalC {
             int hold = binary % 10;
             int current = (int) Math.pow(hold, exponent);
             result = current + result;
-
+            binary = binary / 2;
             exponent++;
         }
     }
