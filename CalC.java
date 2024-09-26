@@ -162,19 +162,19 @@ public class CalC {
         
         switch (num) {
             case 1:
-                HexaDecimal();
+                decimal();
                 break;
 
             case 2:
-                decimal ();
-                break;
-
-            case 3:
                 binary();
                 break;
 
+            case 3:
+                OctaDecimal();
+                break;
+
             case 4:
-                OctaDecimal();;
+                HexaDecimal();
                 break;
 
         }
