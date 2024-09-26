@@ -2,17 +2,6 @@ import java.util.Scanner;
 
 public class CalC {
 
-    static void addition (){
-        Scanner inputAdd = new Scanner(System.in);
-        System.out.println("Enter a Value: ");
-        int num1 = inputAdd.nextInt();
-        int num2 = inputAdd.nextInt();
-
-        int sum = num1 + num2;
-        System.out.println("Your answer is: " + sum);
-
-        inputAdd.close();
-    }
 //DECIMAL PLACES CONVERSION -------------------------------------------------------
     static void decimal (){
         Scanner inputDecimalConversion = new Scanner(System.in);
@@ -94,7 +83,7 @@ public class CalC {
     static void binary (){
         Scanner inputBinaryConverstion = new Scanner(System.in);
 
-        int binary = 1011011;//inputBinaryConverstion.nextInt();
+        int binary = inputBinaryConverstion.nextInt();
         int result = 0;
         int exponent = 0;
 
@@ -109,12 +98,61 @@ public class CalC {
             binary = binary / 10;
             exponent++;
         }
+        System.out.println(result);
+        inputBinaryConverstion.close();
+    }
+
+
+//OCTADECIMAL DIGIT CONVERSION to DECIMAL -------------------------------------------------------
+    static void OctaDecimal (){
+        Scanner inputBinaryConverstion = new Scanner(System.in);
+
+        int binary = inputBinaryConverstion.nextInt();
+        int result = 0;
+        int exponent = 0;
+
+
+        while (binary > 0){
+            int hold = binary % 10;
+            int current = (int) Math.pow(8, exponent);
+            
+            int currentMultiplier = current * hold;
+            result = currentMultiplier + result;
+
+            binary = binary / 10;
+            exponent++;
+        }
+        System.out.println(result);
+        inputBinaryConverstion.close();
+    }
+
+//HEXADECIMAL DIGIT CONVERSION to DECIMAL -------------------------------------------------------
+    static void HexaDecimal (){
+        Scanner inputBinaryConverstion = new Scanner(System.in);
+
+        int binary = inputBinaryConverstion.nextInt();
+        int result = 0;
+        int exponent = 0;
+
+
+        while (binary > 0 /*&& binary <= 1*/){
+            int hold = binary % 10;
+            int current = (int) Math.pow(16, exponent);
+            
+            int currentMultiplier = current * hold;
+            result = currentMultiplier + result;
+
+            binary = binary / 10;
+            exponent++;
+        }
+        System.out.println(result);
+        inputBinaryConverstion.close();
     }
 
 
 
         
-    //-------------------------> MAIN
+    //-------------------------> MAIN--------------------------
     
     public static void main (String [] args){ 
         Scanner get = new Scanner(System.in);
@@ -124,7 +162,7 @@ public class CalC {
         
         switch (num) {
             case 1:
-                addition();
+                HexaDecimal();
                 break;
 
             case 2:
@@ -136,7 +174,7 @@ public class CalC {
                 break;
 
             case 4:
-                System.out.println("fourth");
+                OctaDecimal();;
                 break;
 
         }
