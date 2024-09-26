@@ -6,18 +6,19 @@ public class CalC {
     static void decimal (){
         Scanner inputDecimalConversion = new Scanner(System.in);
 
-        System.out.println("Enter a Decimal Value: ");
+        System.out.print("Enter a Decimal Value: ");
         int decimalNum = inputDecimalConversion.nextInt();
         
         //DECIMAL -----> BINARY
         int decimalBinary = decimalNum;
         String binary = "";
 
+        System.out.println("--------------------");
         //EQUATION
         while (decimalBinary > 0){
             int remainderBinary = decimalBinary % 2;
             binary = remainderBinary + binary;
-            
+
             decimalBinary = decimalBinary / 2;
         }
         System.out.println("Binary is: " + binary);
@@ -83,11 +84,12 @@ public class CalC {
     static void binary (){
         Scanner inputBinaryConverstion = new Scanner(System.in);
 
+        System.out.print("Enter a Binary: ");
         int binary = inputBinaryConverstion.nextInt();
         int result = 0;
         int exponent = 0;
 
-
+        System.out.println("--------------------");
         while (binary > 0){
             int hold = binary % 10;
             int current = (int) Math.pow(2, exponent);
@@ -98,7 +100,7 @@ public class CalC {
             binary = binary / 10;
             exponent++;
         }
-        System.out.println(result);
+        System.out.println("Decimal is: " + result);
         inputBinaryConverstion.close();
     }
 
@@ -157,7 +159,11 @@ public class CalC {
     public static void main (String [] args){ 
         Scanner get = new Scanner(System.in);
 
-        System.out.print("Enter your preference: ");
+        System.out.println("Enter your preference: ");
+        System.out.println("Press \"1\" for Decimal ");
+        System.out.println("Press \"2\" for Binary ");
+        System.out.println("Press \"3\" for OctaDecimal ");
+        System.out.println("Press \"4\" for HexaDecimal ");
         int num = get.nextInt();
         
         switch (num) {

@@ -20,5 +20,7 @@ public class Prime {
 			System.out.println("This is a Prime Number.");
 		else
 			System.out.println("This is not a Prime Number.");
+
+		input.close();
     }
 }
