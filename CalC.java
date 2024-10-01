@@ -32,8 +32,8 @@ public class CalC {
 
         //Equation
         while (decimalOcta > 0){
-            int remainderHexa = decimalOcta % 8;
-            Octadecimal =   remainderHexa + Octadecimal;
+            int remainderOcta = decimalOcta % 8;
+            Octadecimal =   remainderOcta + Octadecimal;
             
             decimalOcta = decimalOcta / 8;
         }
@@ -86,7 +86,7 @@ public class CalC {
 
         System.out.print("Enter a Binary: ");
         int binary = inputBinaryConverstion.nextInt();
-        int result = 0;
+        int decimal = 0;
         int exponent = 0;
 
         System.out.println("--------------------");
@@ -95,13 +95,65 @@ public class CalC {
             int current = (int) Math.pow(2, exponent);
             
             int currentMultiplier = current * hold;
-            result = currentMultiplier + result;
+            decimal = currentMultiplier + decimal;
 
             binary = binary / 10;
             exponent++;
         }
-        System.out.println("Decimal is: " + result);
+        System.out.println("Decimal is: " + decimal);
         inputBinaryConverstion.close();
+
+    //Binary to Decimal to OctaDecimal
+        int octaDecimal = decimal;
+        String result = "";
+
+        while (octaDecimal > 0){
+            int remainderOcta = octaDecimal% 8;
+            result = remainderOcta + result;
+            octaDecimal = octaDecimal / 8;
+        }
+        System.out.println("OctaDecimal is: " + result);
+
+    //Binary to Decimal to HexaDecimal
+        int hexaDecimal = decimal;
+        String hexaResult = "";
+
+        while (hexaDecimal > 0){
+            int remainderHexa = hexaDecimal % 16;
+            hexaDecimal = hexaDecimal / 16;
+
+            switch (remainderHexa) {
+                case 10:
+                    hexaResult = "A" + hexaResult;
+                    break;
+                
+                case 11:
+                    hexaResult = "B" + hexaResult;  
+                    break;
+            
+                case 12:
+                    hexaResult = "c" + hexaResult;
+                    break;
+
+                case 13:
+                    hexaResult = "D" + hexaResult;
+                    break;
+
+                case 14:
+                    hexaResult = "E" + hexaResult;
+                    break;
+
+                case 15:
+                    hexaResult = "F" + hexaResult;
+                    break;
+
+                default:
+                    hexaResult = remainderHexa + hexaResult;
+                    break;
+            }
+            
+        }
+        System.out.println("hexaDecimal: " + hexaResult);
     }
 
 
