@@ -159,25 +159,77 @@ public class CalC {
 
 //OCTADECIMAL DIGIT CONVERSION to DECIMAL -------------------------------------------------------
     static void OctaDecimal (){
-        Scanner inputBinaryConverstion = new Scanner(System.in);
+        Scanner inputOctaConverstion = new Scanner(System.in);
 
-        int binary = inputBinaryConverstion.nextInt();
-        int result = 0;
+        System.out.print("Enter a OctaDecimal Value: ");
+        int Octa = inputOctaConverstion.nextInt();
+        int decimal = 0;
         int exponent = 0;
 
-
-        while (binary > 0){
-            int hold = binary % 10;
+        while (Octa > 0){
+            int hold = Octa % 10;
             int current = (int) Math.pow(8, exponent);
             
             int currentMultiplier = current * hold;
-            result = currentMultiplier + result;
+            decimal = currentMultiplier + decimal;
 
-            binary = binary / 10;
+            Octa = Octa / 10;
             exponent++;
         }
-        System.out.println(result);
-        inputBinaryConverstion.close();
+        System.out.println("Decimal is: " + decimal);
+
+        //Octa to Decimal to Binary
+
+        String OctaToBinary = ""; //this became string because we need to concatenate only the remainder. other wise, it will just print the total
+        int decimalConverterBinary = decimal; 
+        while (decimalConverterBinary > 0){
+            int remainder= decimalConverterBinary % 2;
+            OctaToBinary = remainder + OctaToBinary;
+            decimalConverterBinary = decimalConverterBinary / 2;
+        }
+        System.out.println("Binary is: " + OctaToBinary);
+
+        // Octa to Decimal to HexaDecimal
+        
+        int decimalConverterHexaDecimal = decimal;
+        String octaToHexa = "";
+
+        while (decimalConverterHexaDecimal > 0){
+            int hexaRemainder = decimalConverterHexaDecimal % 16;
+            decimalConverterHexaDecimal = decimalConverterHexaDecimal / 16;
+
+            switch (hexaRemainder) {
+                case 10:
+                    octaToHexa = "A" + octaToHexa;
+                    break;
+                    
+                case 11:
+                    octaToHexa = "B" + octaToHexa;
+                    break;
+
+                case 12:
+                    octaToHexa = "C" + octaToHexa;
+                    break;
+
+                case 13:
+                    octaToHexa = "D" + octaToHexa;
+                    break;
+
+                case 14:
+                    octaToHexa = "E" + octaToHexa;
+                    break;
+
+                case 15:
+                    octaToHexa = "F" + octaToHexa;
+                    break;
+
+                default:
+                    octaToHexa = hexaRemainder + octaToHexa;
+                    break;
+            }
+            
+        }
+        System.out.println("HexaDecimal is: " + octaToHexa);
     }
 
 //HEXADECIMAL DIGIT CONVERSION to DECIMAL -------------------------------------------------------
