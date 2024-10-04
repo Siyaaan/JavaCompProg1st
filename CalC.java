@@ -230,32 +230,110 @@ public class CalC {
             
         }
         System.out.println("HexaDecimal is: " + octaToHexa);
+        inputOctaConverstion.close();
     }
 
 //HEXADECIMAL DIGIT CONVERSION to DECIMAL -------------------------------------------------------
     static void HexaDecimal (){
-        Scanner inputBinaryConverstion = new Scanner(System.in);
+        Scanner input = new Scanner(System.in);
 
-        int binary = inputBinaryConverstion.nextInt();
-        int result = 0;
+        System.out.print("Enter a HexaDecimal: ");
+        String name = input.nextLine().toUpperCase();
+
+        int length = name.length();
+
+        String switchCase = "";
+
+        for (int i = 0; length > i; i++){
+            char letters = name.charAt(i);
+            
+            switch (letters) {
+
+                case 'A':
+                    switchCase = switchCase + "10";
+                    break;
+
+                case 'B':
+                    switchCase = switchCase + "11";
+                    break;
+
+                case 'C':
+                    switchCase = switchCase + "12";
+                    break;
+
+                case 'D':
+                    switchCase = switchCase + "13";
+                    break;
+
+                case 'E':
+                    switchCase = switchCase + "14";
+                    break;
+
+                case 'F':
+                    switchCase = switchCase + "15";
+                    break;
+            
+                default:
+                    switchCase = switchCase + letters;
+                    break;
+            }
+        }
+
+        int numConverted = Integer.parseInt(switchCase);;
+        int decimal = 0;
         int exponent = 0;
 
-
-        while (binary > 0 /*&& binary <= 1*/){
-            int hold = binary % 10;
-            int current = (int) Math.pow(16, exponent);
+        while (numConverted > 0){
+            int let = numConverted % 100;
             
-            int currentMultiplier = current * hold;
-            result = currentMultiplier + result;
+            if (10 <= let && let <= 15){
+                int hold = (int)Math.pow(16, exponent);
+                int remHexa = hold * let;
+                decimal = decimal + remHexa;
+                numConverted = numConverted / 100;
 
-            binary = binary / 10;
+            } else {
+                int letElse = numConverted % 10;
+                int hold = (int)Math.pow(16, exponent);
+                int remHexa = hold * letElse;
+                decimal = decimal + remHexa;
+                numConverted = numConverted / 10;
+            }
             exponent++;
         }
-        System.out.println(result);
-        inputBinaryConverstion.close();
+
+        System.out.println("Decimal: " + decimal);
+
+        //HexaDecimal to Decimal to Binary
+
+        int hexaDecimalToDecimalToBinary = decimal;
+        String binary = "";
+
+        while (hexaDecimalToDecimalToBinary > 0){
+            int remainder = hexaDecimalToDecimalToBinary % 2;
+            binary = remainder + binary;
+            hexaDecimalToDecimalToBinary = hexaDecimalToDecimalToBinary / 2;
+        }
+
+        System.out.println("Binary: " + binary);
+
+        //HexaDecimal to Decimal to OctaDecimal
+
+        int hexaDecimalToDecimalToOcta = decimal;
+        String octaDecimal = "";
+
+        while (hexaDecimalToDecimalToOcta > 0){
+            int remainderOcta = hexaDecimalToDecimalToOcta % 8;
+            octaDecimal = remainderOcta + octaDecimal;
+            hexaDecimalToDecimalToOcta = hexaDecimalToDecimalToOcta / 8;
+        }
+
+        System.out.println("Octa Decimal: " + octaDecimal);
+
+        input.close();
     }
 
-
+        
 
         
     //-------------------------> MAIN--------------------------
@@ -268,6 +346,8 @@ public class CalC {
         System.out.println("Press \"2\" for Binary ");
         System.out.println("Press \"3\" for OctaDecimal ");
         System.out.println("Press \"4\" for HexaDecimal ");
+
+        System.out.print("Enter your preference: ");
         int num = get.nextInt();
         
         switch (num) {
