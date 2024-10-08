@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+
 public class CalC {
 
 //DECIMAL PLACES CONVERSION -------------------------------------------------------
@@ -332,23 +333,22 @@ public class CalC {
 
         input.close();
     }
-
-        
-
         
     //-------------------------> MAIN--------------------------
     
     public static void main (String [] args){ 
         Scanner get = new Scanner(System.in);
-
+        int num = 0;
+        
         System.out.println("Enter your preference: ");
         System.out.println("Press \"1\" for Decimal ");
         System.out.println("Press \"2\" for Binary ");
         System.out.println("Press \"3\" for OctaDecimal ");
         System.out.println("Press \"4\" for HexaDecimal ");
 
+        do{
         System.out.print("Enter your preference: ");
-        int num = get.nextInt();
+        num = get.nextInt();
         
         switch (num) {
             case 1:
@@ -368,6 +368,7 @@ public class CalC {
                 break;
 
         }
+        } while (num != 0);
         get.close();
     }
 }
