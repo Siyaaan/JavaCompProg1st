@@ -345,7 +345,7 @@ public class CalC {
         System.out.println("Press \"2\" for Binary ");
         System.out.println("Press \"3\" for OctaDecimal ");
         System.out.println("Press \"4\" for HexaDecimal ");
-
+        System.out.println("Press \"5\" to terminate the program.");
         do{
         System.out.print("Enter your preference: ");
         num = get.nextInt();
@@ -366,9 +366,15 @@ public class CalC {
             case 4:
                 HexaDecimal();
                 break;
+            
+            case 5:
+                System.out.println("Quitting...");
+                break;
+            default:
+                System.out.println("Error, please input a different number.");
 
         }
-        } while (num != 0);
+        } while (num != 5);
         get.close();
     }
 }
