@@ -346,6 +346,7 @@ public class CalC {
         System.out.println("Press \"3\" for OctaDecimal ");
         System.out.println("Press \"4\" for HexaDecimal ");
         System.out.println("Press \"5\" to terminate the program.");
+        
         do{
         System.out.print("Enter your preference: ");
         num = get.nextInt();
