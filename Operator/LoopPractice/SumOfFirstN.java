@@ -23,5 +23,6 @@ public class SumOfFirstN {
             System.out.print("quit to exit: ");
             name = inputCondition.nextLine();
         } while (!name.equals("quit"));
+        inputCondition.close();
     }
 }
